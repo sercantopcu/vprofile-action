@@ -14,9 +14,13 @@ spec:
       labels:
         app: vprodb
     spec:
+      automountServiceAccountToken: false
       containers:
       - name: vprodb
         image: vprofile/vprofiledb 
+        resources:
+          limits:
+            memory: 100Mi
         ports:
         - name: vprodb-port
           containerPort: 3306

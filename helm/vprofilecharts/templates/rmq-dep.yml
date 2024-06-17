@@ -14,9 +14,13 @@ spec:
       labels:
         app: vpromq01
     spec:
+      automountServiceAccountToken: false
       containers:
       - name: vpromq01
         image: rabbitmq
+        resources:
+          limits:
+            memory: 100Mi
         ports:
         - name: vpromq01-port
           containerPort: 15672

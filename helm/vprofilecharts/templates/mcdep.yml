@@ -14,9 +14,13 @@ spec:
       labels:
         app: vpromc
     spec:
+      automountServiceAccountToken: false
       containers:
       - name: vpromc
         image: memcached
+        resources:
+          limits:
+            memory: 100Mi
         ports:
         - name: vpromc-port
           containerPort: 11211
